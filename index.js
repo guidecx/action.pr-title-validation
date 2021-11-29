@@ -11,6 +11,8 @@ async function run() {
   try {
     const title = github.context.payload.pull_request.title;
 
+    console.log('PR title:', title);
+
     const titleFailsCheck = prTitleRegex.test(title);
     if (titleFailsCheck) {
       throw Error(
@@ -19,7 +21,8 @@ async function run() {
     }
     core.info('Thank you for the nice PR title!');
   } catch (error) {
-    core.info(error);
+    console.log(error);
+    core.setFailed(error);
   }
 }
 
