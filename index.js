@@ -1,10 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-const prTitleRegex = new RegExp(
-  '(chore|feat|feature|bug|fix|hotfix|revert)(([0-9]+)): [A-z 0-9]+',
-  'gmi'
-);
+const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/' A-z 0-9]+/gim;
 
 const passMessage = 'Thank you for the nice PR title!';
 const failMessage =
