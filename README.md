@@ -7,3 +7,5 @@ The action needs Node.js to run but checking in your node_modules directory can 
 1. Install vercel/ncc by running this command in your terminal. `npm i -g @vercel/ncc`
 1. Compile your `index.js` file using `ncc build index.js`. (If this were a public repo and we had a `licences.txt` file that command would be `ncc build index.js --license licenses.txt`)
    You'll see a new dist/index.js file with your code and the compiled modules. If you have a `licenses.txt` file you will also see an accompanying dist/licenses.txt file containing all the licenses of the node_modules you are using.
+
+test
