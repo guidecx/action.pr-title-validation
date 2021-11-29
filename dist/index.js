@@ -8273,14 +8273,6 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
-/***/ 8352:
-/***/ ((module) => {
-
-module.exports = eval("require")("@octokit/action");
-
-
-/***/ }),
-
 /***/ 2492:
 /***/ ((module) => {
 
@@ -8499,8 +8491,6 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 
-const { Octokit } = __nccwpck_require__(8352);
-
 let octokit;
 
 const prTitleRegex = new RegExp(
@@ -8524,15 +8514,7 @@ async function run() {
   }
 }
 
-try {
-  octokit = new Octokit();
-} catch (e) {
-  handleOctokitError(e);
-}
-
-if (octokit) {
-  run();
-}
+run();
 
 })();
 
