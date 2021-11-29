@@ -13,7 +13,8 @@ async function run() {
 
     const title = github.context.payload.pull_request.title;
 
-    core.info('PR title:', title);
+    // core.info('PR title:', title);
+    core.info('PR title:', github.context.payload.pull_request.title);
 
     const titleFailsCheck = !prTitleRegex.test(title);
 
