@@ -9,7 +9,7 @@ const prTitleRegex = new RegExp(
 async function run() {
   core.info('Running PR title check...');
   try {
-    console.log('github.context: \n', JSON.stringify(github.context, null, 2));
+    core.info('action: \n', JSON.stringify(github.context.payload.pull_request.action, null, 2));
 
     const title = github.context.payload.pull_request.title;
 
@@ -27,6 +27,7 @@ async function run() {
     core.info('Thank you for the nice PR title!');
   } catch (error) {
     core.error(error.message);
+    core.setFailed(error);
   }
 }
 

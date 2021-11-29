@@ -8499,7 +8499,7 @@ const prTitleRegex = new RegExp(
 async function run() {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Running PR title check...');
   try {
-    console.log('github.context: \n', JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context, null, 2));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('action: \n', JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.action, null, 2));
 
     const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
 
@@ -8517,6 +8517,7 @@ async function run() {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Thank you for the nice PR title!');
   } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.error(error.message);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error);
   }
 }
 
