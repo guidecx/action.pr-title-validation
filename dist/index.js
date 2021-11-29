@@ -8501,7 +8501,8 @@ const failMessage =
   '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
 
 async function run() {
-  const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
+  // const title = github.context.payload.pull_request.title;
+  const title = 'chore(12345): testing the title';
   const titlePasses = prTitleRegex.test(title);
 
   if (titlePasses) {
