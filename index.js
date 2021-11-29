@@ -13,6 +13,8 @@ const prTitleRegex = new RegExp(
 async function run() {
   try {
     const title = github.context.payload.pull_request.title;
+    
+    console.log('title:', title);
 
     const titleFailsCheck = prTitleRegex.test(title);
     if (titleFailsCheck) {
