@@ -7,24 +7,23 @@ const prTitleRegex = new RegExp(
 );
 
 async function run() {
-  console.log('running test...');
-  0;
-  try {
-    const title = github.context.payload.pull_request.title;
+  core.info('Running PR title check...');
 
-    console.log('PR title:', title);
+  console.log('github.context: \n', JSON.stringify(github.context, null, 2));
 
-    const titleFailsCheck = !prTitleRegex.test(title);
-    if (titleFailsCheck) {
-      throw Error(
-        '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
-      );
-    }
-    core.info('Thank you for the nice PR title!');
-  } catch (error) {
-    console.log(error);
-    core.setFailed(error);
+  const title = github.context.payload.pull_request.title;
+
+  core.info('PR title:', title);
+
+  const titleFailsCheck = !prTitleRegex.test(title);
+
+  if (titleFailsCheck) {
+    core.error(
+      '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
+    );
   }
+
+  core.info('Thank you for the nice PR title!');
 }
 
 run();
