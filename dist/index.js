@@ -8507,7 +8507,6 @@ async function run() {
   if (titlePasses) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(passMessage);
   } else {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.notice(failMessage);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(failMessage);
   }
 }

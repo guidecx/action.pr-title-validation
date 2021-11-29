@@ -17,7 +17,6 @@ async function run() {
   if (titlePasses) {
     core.info(passMessage);
   } else {
-    core.notice(failMessage);
     core.setFailed(failMessage);
   }
 }
