@@ -8497,20 +8497,23 @@ const prTitleRegex = new RegExp(
 );
 
 async function run() {
-  console.log('running test...');
-  try {
-    const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Running PR title check...');
 
-    const titleFailsCheck = prTitleRegex.test(title);
-    if (titleFailsCheck) {
-      throw Error(
-        '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
-      );
-    }
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Thank you for the nice PR title!');
-  } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(error);
+  console.log('github.context: \n', JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context, null, 2));
+
+  const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
+
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('PR title:', title);
+
+  const titleFailsCheck = !prTitleRegex.test(title);
+
+  if (titleFailsCheck) {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.error(
+      '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
+    );
   }
+
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Thank you for the nice PR title!');
 }
 
 run();
