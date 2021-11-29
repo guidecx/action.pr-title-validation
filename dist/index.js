@@ -8496,28 +8496,26 @@ const prTitleRegex = new RegExp(
   'gmi'
 );
 
+const passMessage = 'Thank you for the nice PR title!';
+const failMessage =
+  '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
+
 async function run() {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Running PR title check...');
-  try {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('action: \n', JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.action, null, 2));
 
-    const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('github.payload: \n', _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload);
 
-    // core.info('PR title:', title);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('PR title:', _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title);
+  const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
 
-    const titleFailsCheck = !prTitleRegex.test(title);
+  // core.info('PR title:', title);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('PR title:', _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title);
 
-    if (titleFailsCheck) {
-      throw Error(
-        '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
-      );
-    }
+  const titlePasses = prTitleRegex.test(title);
 
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Thank you for the nice PR title!');
-  } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.error(error.message);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error);
+  if (titlePasses) {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(passMessage);
+  } else {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(failMessage);
   }
 }
 

@@ -6,28 +6,26 @@ const prTitleRegex = new RegExp(
   'gmi'
 );
 
+const passMessage = 'Thank you for the nice PR title!';
+const failMessage =
+  '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
+
 async function run() {
   core.info('Running PR title check...');
-  try {
-    core.info('action: \n', JSON.stringify(github.context.payload.pull_request.action, null, 2));
 
-    const title = github.context.payload.pull_request.title;
+  core.info('github.payload: \n', github.context.payload);
 
-    // core.info('PR title:', title);
-    core.info('PR title:', github.context.payload.pull_request.title);
+  const title = github.context.payload.pull_request.title;
 
-    const titleFailsCheck = !prTitleRegex.test(title);
+  // core.info('PR title:', title);
+  core.info('PR title:', github.context.payload.pull_request.title);
 
-    if (titleFailsCheck) {
-      throw Error(
-        '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
-      );
-    }
+  const titlePasses = prTitleRegex.test(title);
 
-    core.info('Thank you for the nice PR title!');
-  } catch (error) {
-    core.error(error.message);
-    core.setFailed(error);
+  if (titlePasses) {
+    core.info(passMessage);
+  } else {
+    core.setFailed(failMessage);
   }
 }
 
