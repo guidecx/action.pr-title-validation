@@ -11,20 +11,13 @@ const failMessage =
   '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
 
 async function run() {
-  core.info('Running PR title check...');
-
-  core.info('github.payload: \n', github.context.payload);
-
   const title = github.context.payload.pull_request.title;
-
-  // core.info('PR title:', title);
-  core.info('PR title:', github.context.payload.pull_request.title);
-
   const titlePasses = prTitleRegex.test(title);
 
   if (titlePasses) {
     core.info(passMessage);
   } else {
+    core.notice(failMessage);
     core.setFailed(failMessage);
   }
 }

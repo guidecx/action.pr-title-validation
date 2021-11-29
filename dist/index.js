@@ -8501,20 +8501,13 @@ const failMessage =
   '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
 
 async function run() {
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('Running PR title check...');
-
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('github.payload: \n', _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload);
-
   const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
-
-  // core.info('PR title:', title);
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('PR title:', _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title);
-
   const titlePasses = prTitleRegex.test(title);
 
   if (titlePasses) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(passMessage);
   } else {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.notice(failMessage);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(failMessage);
   }
 }
