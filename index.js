@@ -8,12 +8,13 @@ const prTitleRegex = new RegExp(
 
 async function run() {
   console.log('running test...');
+  0;
   try {
     const title = github.context.payload.pull_request.title;
 
     console.log('PR title:', title);
 
-    const titleFailsCheck = prTitleRegex.test(title);
+    const titleFailsCheck = !prTitleRegex.test(title);
     if (titleFailsCheck) {
       throw Error(
         '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/'
