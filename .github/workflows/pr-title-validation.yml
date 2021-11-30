@@ -1,9 +1,9 @@
-name: Test
+name: PR Title Validation
 
 on: [pull_request]
 
 jobs:
-  test:
+  pr-title-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
