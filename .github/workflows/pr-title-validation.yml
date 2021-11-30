@@ -3,7 +3,7 @@ name: PR Title Validation
 on: [pull_request]
 
 jobs:
-  pr-title-validation:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
