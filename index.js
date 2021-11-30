@@ -5,7 +5,7 @@ const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/' 
 
 const passMessage = 'Thank you for the nice PR title!';
 const failMessage =
-  '❌  Your PR title fails GCX standards, please refer to the company engineering standards for PR titles found at https://GCX-standards-doc-here/';
+  '❌  Your PR title should look like `type(story-number): storyTitle or description` where `type` is one of [chore|feat|feature|bug|fix|hotfix|revert]';
 
 async function run() {
   const title = github.context.payload.pull_request.title;
