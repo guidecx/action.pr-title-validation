@@ -8491,13 +8491,14 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 
-const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/' A-z 0-9]+/gim;
+const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/'\- A-z 0-9]+/gim;
 
-const passMessage = 'Thank you for the nice PR title!';
+const passMessage = '✅ Thank you for the nice PR title!';
 const failMessage =
-  '❌  Your PR title should look like `type(story-number): storyTitle or description` where `type` is one of [chore|feat|feature|bug|fix|hotfix|revert]';
+  '❌ Your PR title should resemble `type(story-number): short subject line` - see https://github.com/guidecx/action.pr-title-validation/blob/master/README.md';
 
 async function run() {
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload);
   const title = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request.title;
   const titlePasses = prTitleRegex.test(title);
 
