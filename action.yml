@@ -1,5 +1,6 @@
 name: 'GuideCX PR title validation'
 description: 'Make sure that our PR titles meet our internal standards'
+author: GuideCX (https://www.guidecx.com/)
 runs:
   using: 'node12'
   main: 'dist/index.js'
