@@ -4,9 +4,9 @@
 
 Our PR Title guidelines are simple - `type(story-number): the subject line`
 
-- Type - should be one of [ chore | feat | feature | bug|fix | hotfix | revert ].
+- Type - should be one of ` chore | feat | feature | bug | fix | hotfix | revert `.
 - Story Number - The parens with a ShortCut story number followed by a colon.
-- Subject - the short subject line of the pull request. It can include the following special characters: `, . / ' "`
+- Subject - the short subject line of the pull request. It can include the following special characters: `, . _ - / ' "`
 
 If you wish to push up "work in progress" code that you don't want to merge yet, you will need to create a draft PR instead so that the PR title validation will pass regardless of your PR title.
 
