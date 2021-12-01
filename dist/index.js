@@ -8506,7 +8506,6 @@ async function run() {
   titlePasses = draft ? true : prTitleRegex.test(title);
 
   if (titlePasses) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.notice(draft ? draftMessage : passMessage);
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(draft ? draftMessage : passMessage);
   } else {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(failMessage);

@@ -16,7 +16,6 @@ async function run() {
   titlePasses = draft ? true : prTitleRegex.test(title);
 
   if (titlePasses) {
-    core.notice(draft ? draftMessage : passMessage);
     core.info(draft ? draftMessage : passMessage);
   } else {
     core.setFailed(failMessage);
