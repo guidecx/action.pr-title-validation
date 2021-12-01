@@ -8,7 +8,9 @@ Our PR Title guidelines are simple - `type(story-number): the subject line`
 - Story Number - The parens with a ShortCut story number followed by a colon.
 - Subject - the short subject line of the pull request. It can include the following special characters: `, . / ' "`
 
-Alternatively your PR title can contain `[WIP]` anywhere and it will pass the validation but will also flag the engineering team that this PR is not for merging. When pushing up "work in progress" you should create a "draft" PR so that it cannot be merged.
+If you wish to push up "work in progress" code that you don't want to merge yet, you will need to create a draft PR instead so that the PR title validation will pass regardless of your PR title.
+
+<div align="center"><img src="assets/create-draft.png?raw=true" /></div>
 
 ### Contribution notes:
 
