@@ -12,8 +12,8 @@
     "url": "git+https://github.com/guidecx/action.pr-title-validation.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "GuideCX (https://www.guidecx.com/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/guidecx/action.pr-title-validation/issues"
   },
