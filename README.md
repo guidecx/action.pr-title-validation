@@ -10,8 +10,6 @@ Our PR Title guidelines are simple - `type(story-number): the subject line`
 
 If you wish to push up "work in progress" code that you don't want to merge yet, you will need to create a draft PR instead so that the PR title validation will pass regardless of your PR title.
 
-<div align="center"><img src="assets/create-draft.png?raw=true" /></div>
-
 ### Contribution notes:
 
 The action needs Node.js to run but checking in your node_modules directory can cause problems. As an alternative we use a tool called @vercel/ncc to compile our code and modules into one file used for distribution.
