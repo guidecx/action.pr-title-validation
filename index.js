@@ -8,7 +8,7 @@ const failMessage =
   '❌ Your PR title should resemble `type(story-number): short subject line` - see https://github.com/guidecx/action.pr-title-validation/blob/master/README.md';
 
 async function run() {
-  core.info(github.context.payload);
+  core.info(JSON.stringify(github.context.payload, null, 2));
   const title = github.context.payload.pull_request.title;
   const titlePasses = prTitleRegex.test(title);
 
