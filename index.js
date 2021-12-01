@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
-const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/'\- A-z 0-9]+/gim;
+const prTitleRegex = /(chore|feat|feature|bug|fix|hotfix|revert)\([0-9]+\): [/'"\-_ A-z 0-9]+/gim;
 
 const draftMessage = 'PR title not relevant on Draft PRs';
 const passMessage = '✅ Thank you for the nice PR title!';
